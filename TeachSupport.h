@@ -4,7 +4,7 @@
 #include "Employee.h"
 class TeachSupport: public Employee{
 public:
-    virtual void setSalary(int salary);
+    virtual void setSalary(int salary) = 0;
     void print()override{
         cout << division << " - Teaching support staff - "  << position << " - "<< name << endl;
         cout << "Salary : " << salary << endl;

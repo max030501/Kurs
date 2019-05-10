@@ -11,8 +11,13 @@ protected:
     string division;
     int salary;
 public:
-    virtual void setSalary() = 0;
+    virtual void setSalary(int salary) = 0;
     virtual void print()= 0;
+	Employee(){};
+
+	Employee(string n, string p, string d, int s) : name(n), position(p), division(d), salary(s) {
+	};
+
     void setName(string name){
         this->name=name;
     }

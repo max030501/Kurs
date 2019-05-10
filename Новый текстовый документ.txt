@@ -49,3 +49,23 @@ int main() {
 
     return 0;
 }
+
+
+
+		vector<Professor*> profArr;
+
+		for (auto t : test) {
+
+			if (reinterpret_cast<Professor*>(t) != nullptr)
+				profArr.push_back(reinterpret_cast<Professor*>(t));
+		}
+
+
+
+
+
+
+
+		test.push_back(this);
+
+		vector<Employee*> test;

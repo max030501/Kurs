@@ -1,12 +1,11 @@
-#ifndef KURS_TEACHER_H
-#define KURS_TEACHER_H
-
+#pragma once
 #include "Employee.h"
 class Teacher : public Employee {
 public:
-	Teacher() {};
+	Teacher() : Employee() {};
 
-	Teacher(string n, string p, string d, int s) : Employee(n, p, d, s*2000*4) {};
+	Teacher(string n, int s) : Employee(n, s*2000*4) {};
+	Teacher(string n,string d, int s) : Employee(n, d, s) {};
 
 
 	virtual void setSalary(int salary) {
@@ -15,11 +14,11 @@ public:
 	
 
 	void print()override {
-		cout << division << " - Teacher - " << position << " - " << name << endl;
-		cout << "Salary : " << salary << endl;
-
+		cout << "Employee name: " << name << endl;
+		cout << "Employee division: " << division << endl;
+		cout << "Employee position: Teacher - " << position << endl;
+		cout << "Employee salary: " << salary << endl;
 	}
 
 
 };
-#endif //KURS_TEACHER_H

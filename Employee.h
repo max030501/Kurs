@@ -1,6 +1,4 @@
-#ifndef KURS_EMPLOYEE_H
-#define KURS_EMPLOYEE_H
-
+#pragma once
 #include <string>
 #include<iostream>
 using namespace std;
@@ -10,13 +8,20 @@ protected:
     string name;
     string division;
     int salary;
+
 public:
     virtual void setSalary(int salary) = 0;
     virtual void print()= 0;
-	Employee(){};
-
-	Employee(string n, string p, string d, int s) : name(n), position(p), division(d), salary(s) {
+	Employee(){
+	    position = "default";
+	    name = "default";
+	    division = "default";
+	    salary = -1;
 	};
+
+	Employee(string n, int s) : salary(s), name(n) {};
+	Employee(string n,string d, int s) : salary(s),division(d), name(n) {};
+
 
     void setName(string name){
         this->name=name;
@@ -40,5 +45,7 @@ public:
         return salary;
     }
 
+
+
 };
-#endif //KURS_EMPLOYEE_H
+

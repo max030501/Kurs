@@ -47,10 +47,10 @@ RM = "F:\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = F:\Univer\kurs
+CMAKE_SOURCE_DIR = F:\Univer\kurs\Kurs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = F:\Univer\kurs\cmake-build-debug
+CMAKE_BINARY_DIR = F:\Univer\kurs\Kurs\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\Univer\kurs\cmake-build-debug\CMakeFiles F:\Univer\kurs\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Univer\kurs\Kurs\cmake-build-debug\CMakeFiles F:\Univer\kurs\Kurs\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\Univer\kurs\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Univer\kurs\Kurs\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -121,60 +121,6 @@ kurs: cmake_check_build_system
 kurs/fast:
 	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/build
 .PHONY : kurs/fast
-
-Employee.obj: Employee.cpp.obj
-
-.PHONY : Employee.obj
-
-# target to build an object file
-Employee.cpp.obj:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Employee.cpp.obj
-.PHONY : Employee.cpp.obj
-
-Employee.i: Employee.cpp.i
-
-.PHONY : Employee.i
-
-# target to preprocess a source file
-Employee.cpp.i:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Employee.cpp.i
-.PHONY : Employee.cpp.i
-
-Employee.s: Employee.cpp.s
-
-.PHONY : Employee.s
-
-# target to generate assembly for a file
-Employee.cpp.s:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Employee.cpp.s
-.PHONY : Employee.cpp.s
-
-Group.obj: Group.cpp.obj
-
-.PHONY : Group.obj
-
-# target to build an object file
-Group.cpp.obj:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Group.cpp.obj
-.PHONY : Group.cpp.obj
-
-Group.i: Group.cpp.i
-
-.PHONY : Group.i
-
-# target to preprocess a source file
-Group.cpp.i:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Group.cpp.i
-.PHONY : Group.cpp.i
-
-Group.s: Group.cpp.s
-
-.PHONY : Group.s
-
-# target to generate assembly for a file
-Group.cpp.s:
-	$(MAKE) -f CMakeFiles\kurs.dir\build.make CMakeFiles/kurs.dir/Group.cpp.s
-.PHONY : Group.cpp.s
 
 MainMenu.obj: MainMenu.cpp.obj
 
@@ -239,12 +185,6 @@ help:
 	@echo ... kurs
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Employee.obj
-	@echo ... Employee.i
-	@echo ... Employee.s
-	@echo ... Group.obj
-	@echo ... Group.i
-	@echo ... Group.s
 	@echo ... MainMenu.obj
 	@echo ... MainMenu.i
 	@echo ... MainMenu.s

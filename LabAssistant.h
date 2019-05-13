@@ -1,9 +1,18 @@
-#ifndef KURS_LABASSISTANT_H
-#define KURS_LABASSISTANT_H
+#pragma once
 #include "TeachSupport.h"
 class LabAssistant : public TeachSupport{
+public:
+    LabAssistant(string n, int s) : TeachSupport(n, s * 4) {
+        position = "Laboratory Assistant";
+    };
+    LabAssistant(string n,string d, int s) : TeachSupport(n,d, s) {
+        position = "Laboratory Assistant";
+    };
+
     void setSalary(int salary)override{
-        this->salary=salary*1000*4*4;
+        TeachSupport::setSalary(salary);
+
+        this->salary *= 4;
     }
 };
-#endif //KURS_LABASSISTANT_H
+

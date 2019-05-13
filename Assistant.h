@@ -1,9 +1,18 @@
-#ifndef KURS_ASSISTANT_H
-#define KURS_ASSISTANT_H
+#pragma once
 #include "Teacher.h"
 class Assistant : public Teacher{
+public:
+    Assistant(string n, int s) : Teacher(n, s * 2) {
+        position = "Assistant";
+    };
+    Assistant(string n,string d, int s) : Teacher(n, d, s ) {
+        position = "Assistant";
+    };
+
     void setSalary(int salary)override{
-        this->salary=salary*2000*4*2;
+        Teacher::setSalary(salary);
+
+        this->salary *= 2;
     }
 };
-#endif //KURS_ASSISTANT_H
+

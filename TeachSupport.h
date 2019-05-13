@@ -1,14 +1,18 @@
-#ifndef KURS_TEACHSUPPORT_H
-#define KURS_TEACHSUPPORT_H
-
+#pragma once
 #include "Employee.h"
 class TeachSupport: public Employee{
 public:
-    virtual void setSalary(int salary) = 0;
-    void print()override{
-        cout << division << " - Teaching support staff - "  << position << " - "<< name << endl;
-        cout << "Salary : " << salary << endl;
-    }
+    TeachSupport() : Employee() {};
+    TeachSupport(string n, int s) : Employee(n, s*1000*4) {};
+    TeachSupport(string n,string d, int s) : Employee(n,d, s) {};
 
+    virtual void setSalary(int salary) {
+        this->salary = salary * 1000 * 4;
+    }
+   void print()override {
+		cout << "Employee name: " << name << endl;
+		cout << "Employee division: " << division << endl;
+		cout << "Employee position: Teaching support staff - " << position << endl;
+		cout << "Employee salary: " << salary << endl;
+	}
 };
-#endif //KURS_TEACHSUPPORT_H

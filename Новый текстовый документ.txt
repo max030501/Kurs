@@ -69,3 +69,11 @@ int main() {
 		test.push_back(this);
 
 		vector<Employee*> test;
+
+
+		 friend std::ostream& operator<<(std::ostream &out, const Department &department)
+            {
+                out << "Department: ";
+                for (unsigned int count = 0; count < department.m_worker.size(); ++count)
+                    out << department.m_worker[count]->getName() << ' ';
+                out << '\n';

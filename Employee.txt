@@ -1,5 +1,9 @@
-1#name#divison 1123
-1#nam divison 2123
-1#name divis 3123
-1#n d 4123
-1#na di 5123
+Name Family#45000#1#Institute of Information Technologies#
+Second Family#25000#2#Institute of Cybernetics#
+Nick Family#25500#5#Institute of Physics and Technology#
+Sam Family#25030#6#Institute of Cybernetics#
+SKary Family#27000#1#Institute of Physics and Technology#
+Tyu Family#25200#2#Institute of Information Technologies#
+Agh Family#25100#3#Institute of Physics and Technology#
+Family Gang#250700#1#Institute of Information Technologies#
+Maxim Timoshkin#240000#1#Institute of Cybernetics#

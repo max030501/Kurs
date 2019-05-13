@@ -1,9 +1,19 @@
-#ifndef KURS_DOCENT_H
-#define KURS_DOCENT_H
+#pragma once
 #include "Teacher.h"
 class Docent : public Teacher{
+public:
+    Docent(string n, int s) : Teacher(n, s * 4) {
+        position = "Docent";
+    };
+    Docent(string n,string d, int s) : Teacher(n,d, s) {
+        position = "Docent";
+    };
+
+
     void setSalary(int salary)override{
-        this->salary=salary*2000*4*4;
+        Teacher::setSalary(salary);
+
+        this->salary *= 4;
     }
 };
-#endif //KURS_DOCENT_H
+

@@ -4,12 +4,12 @@ class Teacher : public Employee {
 public:
 	Teacher() : Employee() {};
 
-	Teacher(string n, int s) : Employee(n, s*2000*4) {};
+	Teacher(string n, int s) : Employee(n, s*250*4) {};
 	Teacher(string n,string d, int s) : Employee(n, d, s) {};
 
 
 	virtual void setSalary(int salary) {
-		this->salary = salary * 2000 * 4;
+		this->salary = salary * 250 * 4;
 	}
 	
 

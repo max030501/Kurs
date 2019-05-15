@@ -16,10 +16,6 @@ public:
         {
             n += Kib_worker[i]->getSalary();
         }
-        if(Kib_worker.size() == 0){
-            cout << "there aren't any Kib workers in the employee list!";
-            return 0;
-        }
         n = n/(Kib_worker.size());
         return n;
     }

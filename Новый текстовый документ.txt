@@ -77,3 +77,18 @@ int main() {
                 for (unsigned int count = 0; count < department.m_worker.size(); ++count)
                     out << department.m_worker[count]->getName() << ' ';
                 out << '\n';
+
+
+
+
+
+
+                Name Family#45000#1#Institute of Information Technologies#
+                Second Family#25000#2#Institute of Cybernetics#
+                Nick Family#25500#5#Institute of Physics and Technology#
+                Sam Family#25030#6#Institute of Cybernetics#
+                SKary Family#27000#1#Institute of Physics and Technology#
+                Tyu Family#25200#2#Institute of Information Technologies#
+                Agh Family#25100#3#Institute of Physics and Technology#
+                Family Gang#250700#1#Institute of Information Technologies#
+                Maxim Timoshkin#240000#1#Institute of Cybernetics#

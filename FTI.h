@@ -15,10 +15,7 @@ public:
         {
             n += FTI_worker[i]->getSalary();
         }
-        if(FTI_worker.size() == 0){
-            cout << "there aren't any FTI workers in the employee list!";
-            return 0;
-        }
+
         n = n/(FTI_worker.size());
         return n;
     }

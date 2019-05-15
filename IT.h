@@ -17,10 +17,6 @@ public:
         {
             n += IT_worker[i]->getSalary();
         }
-        if(IT_worker.size() == 0){
-            cout << "there aren't any IT workers in the employee list!";
-            return 0;
-        }
         n = n/(IT_worker.size());
         return n;
     }

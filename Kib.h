@@ -1,31 +1,36 @@
 #pragma once
+
 #include "Division.h"
+
 class Kib : public Division {
 protected:
-    vector<Employee*> Kib_worker;
+    vector<Employee *> Kib_worker;
 
 public:
-    Kib() : Division(){};
-    void add(Employee *worker) override
-    {
+    Kib() : Division() {};
+
+    void add(Employee *worker) override {
         Kib_worker.push_back(worker);
     }
-    float averageSalary() override{
+
+    float averageSalary() override {
         float n;
-        for(int i = 0; i < Kib_worker.size();i++)
-        {
+        for (int i = 0; i < Kib_worker.size(); i++) {
             n += Kib_worker[i]->getSalary();
         }
-        n = n/(Kib_worker.size());
+        n = n / (Kib_worker.size());
         return n;
     }
-    int vectorSize(){
+
+    int vectorSize() {
         return Kib_worker.size();
     }
-    Employee* ptrWorker(int i){
+
+    Employee *ptrWorker(int i) {
         return Kib_worker[i];
     }
-    void eraseWorker(int i){
+
+    void eraseWorker(int i) {
         Kib_worker.erase(Kib_worker.begin() + i);
     }
 };

@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include "Assistant.h"
 #include "Docent.h"
@@ -6,15 +7,16 @@
 #include "LabAssistant.h"
 #include "Professor.h"
 #include "SeniorTeacher.h"
+
 using namespace std;
 
 
-class Division
-{
+class Division {
 public:
-    Division(){};
+    Division() {};
 
-    virtual void add(Employee* worker) = 0;
+    virtual void add(Employee *worker) = 0;
+
     virtual float averageSalary() = 0;
 
 };

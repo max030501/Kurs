@@ -10,44 +10,49 @@
 #include "IT.h"
 #include "Kib.h"
 #include "FTI.h"
+
 using namespace std;
-void printSeparator(){
-    for(int i = 0; i < 100; i++)
+
+void printSeparator() {
+    for (int i = 0; i < 100; i++)
         cout << "=";
     cout << endl;
 }
-void eraseWorker(vector<Employee*> emp, IT &InfT, FTI &Ft, Kib &Ki, int num){
-    if (emp[num-1]->getDivision() == "Institute of Information Technologies") {
+
+void eraseWorker(vector<Employee *> emp, IT &InfT, FTI &Ft, Kib &Ki, int num) {
+    if (emp[num - 1]->getDivision() == "Institute of Information Technologies") {
         for (int i = 0; i < InfT.vectorSize(); i++) {
-            if (emp[num-1] == InfT.ptrWorker(i)) {
+            if (emp[num - 1] == InfT.ptrWorker(i)) {
                 InfT.eraseWorker(i);
                 break;
             }
         }
 
-    } else if (emp[num-1]->getDivision() == "Institute of Physics and Technology")
+    } else if (emp[num - 1]->getDivision() == "Institute of Physics and Technology")
         for (int i = 0; i < Ft.vectorSize(); i++) {
-            if (emp[num-1] == Ft.ptrWorker(i)) {
+            if (emp[num - 1] == Ft.ptrWorker(i)) {
                 Ft.eraseWorker(i);
                 break;
             }
         }
     else
         for (int i = 0; i < Ki.vectorSize(); i++) {
-            if (emp[num-1] == Ki.ptrWorker(i)) {
+            if (emp[num - 1] == Ki.ptrWorker(i)) {
                 Ki.eraseWorker(i);
                 break;
             }
         }
 }
-void setDivision(vector<Employee*> &emp,string buff, IT &InfT, FTI &Ft, Kib &Ki){
-    if(buff == "Institute of Information Technologies")
+
+void setDivision(vector<Employee *> &emp, string buff, IT &InfT, FTI &Ft, Kib &Ki) {
+    if (buff == "Institute of Information Technologies")
         InfT.add(*(emp.end() - 1));
-    else if(buff == "Institute of Physics and Technology")
+    else if (buff == "Institute of Physics and Technology")
         Ft.add(*(emp.end() - 1));
     else
         Ki.add(*(emp.end() - 1));
 }
+
 //char correctInput(int start, int end){
 //    printSeparator();
 //    string buff;
@@ -64,7 +69,7 @@ void setDivision(vector<Employee*> &emp,string buff, IT &InfT, FTI &Ft, Kib &Ki)
 //    return buff[0];
 //
 //}
-int correctInput(){
+int correctInput() {
     string buff;
     int n = 0;
     do {
@@ -75,36 +80,35 @@ int correctInput(){
             if ((buff[i] > 47) && (buff[i] < 58))
                 n++;
         }
-        if((n != buff.length()) || (buff[n] != '\0')){
+        if ((n != buff.length()) || (buff[n] != '\0')) {
             cout << "Invalid input! Try again." << endl;
         }
         printSeparator();
 
-    }
-    while((n != buff.length()) || (buff[n] != '\0'));
+    } while ((n != buff.length()) || (buff[n] != '\0'));
     return stoi(buff);
 
 }
 
-int getClasses(int sal, string pos){
-    if(pos == "Professor")
-        return sal/(250*4*5);
-    if(pos == "Docent")
-        return sal/(250*4*4);
-    if(pos == "Senior Teacher")
-        return sal/(250*4*3);
-    if(pos == "Assistant")
-        return sal/(250*4*2);
-    if(pos == "Engineer")
-        return sal/(125*4*5);
-    if(pos == "Laboratory Assistant")
-        return sal/(125*4*4);
+int getClasses(int sal, string pos) {
+    if (pos == "Professor")
+        return sal / (250 * 4 * 5);
+    if (pos == "Docent")
+        return sal / (250 * 4 * 4);
+    if (pos == "Senior Teacher")
+        return sal / (250 * 4 * 3);
+    if (pos == "Assistant")
+        return sal / (250 * 4 * 2);
+    if (pos == "Engineer")
+        return sal / (125 * 4 * 5);
+    if (pos == "Laboratory Assistant")
+        return sal / (125 * 4 * 4);
     return 0;
 
 }
 
 
-bool readTxt(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki) {
+bool readTxt(vector<Employee *> &emp, IT &InfT, FTI &Ft, Kib &Ki) {
     string buff1, buff2, buff3;
     int buffInt1, buffInt2;
     ifstream fin("..\\Employee.txt");
@@ -166,51 +170,49 @@ bool readTxt(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki) {
         setDivision(emp, buff2, InfT, Ft, Ki);
 
     }
-        fin.close();
-        return false;
+    fin.close();
+    return false;
 
 }
-void printEmp(vector<Employee*> emp)
-{
+
+void printEmp(vector<Employee *> emp) {
     cout << "List of the employees: " << endl;
-    for(int i = 0; i < emp.size(); i++){
-        cout << i+1 << ". " << emp[i]->getName() << endl;
+    for (int i = 0; i < emp.size(); i++) {
+        cout << i + 1 << ". " << emp[i]->getName() << endl;
     }
     printSeparator();
 }
 
 
-void completeOperation(){
+void completeOperation() {
     cout << "Action was successfully completed!" << endl;
     system("pause");
     printSeparator();
 }
 
-void changePosition(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num) {
+void changePosition(vector<Employee *> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num) {
     string buff1, buff2;
-    int buffInt,buffSwtch;
-    buff1 = emp[num-1]->getName();
-    buff2 = emp[num-1]->getDivision();
-    buffInt = getClasses(emp[num-1]->getSalary(), emp[num-1]->getPosition());
+    int buffInt, buffSwtch;
+    buff1 = emp[num - 1]->getName();
+    buff2 = emp[num - 1]->getDivision();
+    buffInt = getClasses(emp[num - 1]->getSalary(), emp[num - 1]->getPosition());
 
 
-
-    eraseWorker(emp,InfT,Ft,Ki,num);
-    swap(emp[num-1],emp[emp.size()-1]);
-    delete emp[emp.size()-1];
-    emp.erase(emp.end()-1);
+    eraseWorker(emp, InfT, Ft, Ki, num);
+    swap(emp[num - 1], emp[emp.size() - 1]);
+    delete emp[emp.size() - 1];
+    emp.erase(emp.end() - 1);
 
     cout << "What kind of employee do you want to set?" << endl;
     cout << "1. Teacher." << endl;
     cout << "2. Teaching support staff." << endl;
     printSeparator();
-    do{
+    do {
         buffSwtch = correctInput();
-        if((buffSwtch < 1)|| (buffSwtch > 2)){
+        if ((buffSwtch < 1) || (buffSwtch > 2)) {
             cout << "Invalid input! Try again." << endl;
         }
-    }
-    while((buffSwtch < 1)|| (buffSwtch > 2));
+    } while ((buffSwtch < 1) || (buffSwtch > 2));
     switch (buffSwtch) {
         case 1: {
             cout << "What position do you want to set?" << endl;
@@ -219,16 +221,15 @@ void changePosition(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num)
             cout << "3. Senior Teacher." << endl;
             cout << "4. Assistant." << endl;
             printSeparator();
-            do{
+            do {
                 buffSwtch = correctInput();
-                if((buffSwtch < 1)|| (buffSwtch > 4)){
+                if ((buffSwtch < 1) || (buffSwtch > 4)) {
                     cout << "Invalid input! Try again." << endl;
                 }
-            }
-            while((buffSwtch < 1)|| (buffSwtch > 4));
+            } while ((buffSwtch < 1) || (buffSwtch > 4));
             switch (buffSwtch) {
-                case 1:{
-                    emp.push_back(new Professor(buff1,buffInt));
+                case 1: {
+                    emp.push_back(new Professor(buff1, buffInt));
                     break;
                 }
                 case 2: {
@@ -236,11 +237,11 @@ void changePosition(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num)
                     break;
                 }
                 case 3: {
-                    emp.push_back(new SeniorTeacher(buff1,buffInt));
+                    emp.push_back(new SeniorTeacher(buff1, buffInt));
                     break;
                 }
                 case 4: {
-                    emp.push_back(new Assistant(buff1,buffInt));
+                    emp.push_back(new Assistant(buff1, buffInt));
                     break;
                 }
             }
@@ -251,13 +252,12 @@ void changePosition(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num)
             cout << "1. Engineer." << endl;
             cout << "2. Laboratory Assistant." << endl;
             printSeparator();
-            do{
+            do {
                 buffSwtch = correctInput();
-                if((buffSwtch < 1)|| (buffSwtch > 2)){
+                if ((buffSwtch < 1) || (buffSwtch > 2)) {
                     cout << "Invalid input! Try again." << endl;
                 }
-            }
-            while((buffSwtch < 1)|| (buffSwtch > 2));
+            } while ((buffSwtch < 1) || (buffSwtch > 2));
 
             switch (buffSwtch) {
                 case 1: {
@@ -272,55 +272,50 @@ void changePosition(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num)
             break;
         }
     }
-    if(buff2 == "Institute of Information Technologies") {
+    if (buff2 == "Institute of Information Technologies") {
         InfT.add(*(emp.end() - 1));
         emp[emp.size() - 1]->setDivision("Institute of Information Technologies");
-    }
-
-    else if(buff2 == "Institute of Physics and Technology") {
+    } else if (buff2 == "Institute of Physics and Technology") {
         Ft.add(*(emp.end() - 1));
         emp[emp.size() - 1]->setDivision("Institute of Physics and Technology");
-    }
-
-        else {
+    } else {
         Ki.add(*(emp.end() - 1));
         emp[emp.size() - 1]->setDivision("Institute of Cybernetics");
     }
 
 
-        swap(emp[num-1],emp[emp.size()-1]);
+    swap(emp[num - 1], emp[emp.size() - 1]);
 
 }
 
 
-void changeDivision(vector<Employee*> emp, IT &InfT, FTI &Ft, Kib &Ki, int num){
+void changeDivision(vector<Employee *> emp, IT &InfT, FTI &Ft, Kib &Ki, int num) {
     int buffSwtch;
-    eraseWorker(emp,InfT,Ft,Ki,num);
+    eraseWorker(emp, InfT, Ft, Ki, num);
     cout << "What division do you want to set?" << endl;
     cout << "1. Institute of Information Technologies." << endl;
     cout << "2. Institute of Physics and Technology." << endl;
     cout << "3. Institute of Cybernetics." << endl;
     printSeparator();
-    do{
+    do {
         buffSwtch = correctInput();
-        if((buffSwtch < 1)|| (buffSwtch > 3)){
+        if ((buffSwtch < 1) || (buffSwtch > 3)) {
             cout << "Invalid input! Try again." << endl;
         }
-    }
-    while((buffSwtch < 1)|| (buffSwtch > 3));
-    switch(buffSwtch){
-        case 1:{
-            InfT.add(*(emp.begin() + (num-1)));
+    } while ((buffSwtch < 1) || (buffSwtch > 3));
+    switch (buffSwtch) {
+        case 1: {
+            InfT.add(*(emp.begin() + (num - 1)));
             emp[num - 1]->setDivision("Institute of Physics and Technology");
             break;
         }
-        case 2:{
-            Ft.add(*(emp.begin() + (num-1)));
+        case 2: {
+            Ft.add(*(emp.begin() + (num - 1)));
             emp[num - 1]->setDivision("Institute of Physics and Technology");
             break;
         }
-        case 3:{
-            Ki.add(*(emp.begin() + (num-1)));
+        case 3: {
+            Ki.add(*(emp.begin() + (num - 1)));
             emp[num - 1]->setDivision("Institute of Cybernetics");
             break;
         }
@@ -329,13 +324,13 @@ void changeDivision(vector<Employee*> emp, IT &InfT, FTI &Ft, Kib &Ki, int num){
 
 }
 
-void deleteEmp(vector<Employee*> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num){
-    eraseWorker(emp,InfT,Ft,Ki,num);
-    delete emp[num-1];
-    emp.erase(emp.begin()+ (num-1));
+void deleteEmp(vector<Employee *> &emp, IT &InfT, FTI &Ft, Kib &Ki, int num) {
+    eraseWorker(emp, InfT, Ft, Ki, num);
+    delete emp[num - 1];
+    emp.erase(emp.begin() + (num - 1));
 }
 
-bool isExistPos(vector<Employee*> emp, string pos) {
+bool isExistPos(vector<Employee *> emp, string pos) {
     int n = 0;
     for (int i = 0; i < emp.size(); i++) {
         if (emp[i]->getPosition() == pos)
@@ -348,53 +343,51 @@ bool isExistPos(vector<Employee*> emp, string pos) {
 }
 
 
-
-float averageSalary(vector<Employee*> emp, string pos) {
-int n = 0;
-int sal = 0;
-for(int i = 0; i < emp.size();i++){
-if (emp[i]->getPosition()==pos) {
-    n++;
-    sal += emp[i]->getSalary();
+float averageSalary(vector<Employee *> emp, string pos) {
+    int n = 0;
+    int sal = 0;
+    for (int i = 0; i < emp.size(); i++) {
+        if (emp[i]->getPosition() == pos) {
+            n++;
+            sal += emp[i]->getSalary();
+        }
+    }
+    return float(sal) / n;
 }
-}
-return float(sal)/n;
-}
 
 
-void writeTxt(vector<Employee*> emp){
+void writeTxt(vector<Employee *> emp) {
     ofstream fout("../Employee.txt");
-    for(int i = 0 ; i < emp.size(); i++){
+    for (int i = 0; i < emp.size(); i++) {
         fout << emp[i]->getName() << "#" << emp[i]->getSalary() << "#";
-        if(emp[i]->getPosition() == "Professor")
+        if (emp[i]->getPosition() == "Professor")
             fout << "1";
-        if(emp[i]->getPosition() == "Docent")
+        if (emp[i]->getPosition() == "Docent")
             fout << "2";
-        if(emp[i]->getPosition() == "Senior Teacher")
+        if (emp[i]->getPosition() == "Senior Teacher")
             fout << "3";
-        if(emp[i]->getPosition() == "Assistant")
+        if (emp[i]->getPosition() == "Assistant")
             fout << "4";
-        if(emp[i]->getPosition() == "Engineer")
+        if (emp[i]->getPosition() == "Engineer")
             fout << "5";
-        if(emp[i]->getPosition() == "Laboratory Assistant")
+        if (emp[i]->getPosition() == "Laboratory Assistant")
             fout << "6";
         fout << "#" << emp[i]->getDivision() << "#";
-        if(i!=(emp.size()-1))
+        if (i != (emp.size() - 1))
             fout << endl;
 
     }
     fout.close();
 }
 
-void deletePtr(vector<Employee*> emp)
-{
-    for(int i = 0; i < emp.size(); i ++)
+void deletePtr(vector<Employee *> emp) {
+    for (int i = 0; i < emp.size(); i++)
         delete emp[i];
 }
 
 
-bool isExist(vector<Employee*> emp){
-    if(emp.size()==0)
+bool isExist(vector<Employee *> emp) {
+    if (emp.size() == 0)
         return false;
     else
         return true;

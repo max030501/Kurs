@@ -56,7 +56,5 @@ public:
     int getSalary() {
         return salary;
     }
-
-
 };
 

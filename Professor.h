@@ -20,6 +20,5 @@ public:
 
         this->salary *= 5;
     }
-
 };
 

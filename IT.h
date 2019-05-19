@@ -33,7 +33,7 @@ public:
         IT_worker.erase(IT_worker.begin() + i);
     }
 
-    void getWorker(int i) {
-        IT_worker[i]->print();
-    }
+//    void getWorker(int i) {
+//        IT_worker[i]->print();
+//    }
 };

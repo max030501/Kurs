@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 class Division {
 public:
     Division() {};
@@ -20,3 +19,4 @@ public:
     virtual float averageSalary() = 0;
 
 };
+

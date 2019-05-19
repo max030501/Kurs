@@ -22,6 +22,4 @@ public:
         cout << "Employee position: Teacher - " << position << endl;
         cout << "Employee salary: " << salary << endl;
     }
-
-
 };

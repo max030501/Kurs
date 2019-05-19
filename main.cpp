@@ -264,7 +264,6 @@ int main() {
                 deleteEmp(emp, InfT, Ft, Ki, buffInt);
                 completeOperation();
                 break;
-
             }
             case 4: {
                 if (!(isExist(emp))) {
